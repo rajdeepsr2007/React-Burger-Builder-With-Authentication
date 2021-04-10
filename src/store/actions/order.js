@@ -26,7 +26,7 @@ export const purchaseBurgerStart = () => {
 
 
 
-export const purchaseBurger = (orderData) => {
+export const purchaseBurger = (orderData , token) => {
 
     //If we have to redirect after placing the order
     //This action creator can take this.props.history as an argument
@@ -34,7 +34,7 @@ export const purchaseBurger = (orderData) => {
 
     return dispatch => {
         dispatch( purchaseBurgerStart() );
-        axiosInstance.post( '/orders.json' , orderData )
+        axiosInstance.post( '/orders.json?auth=' + token , orderData )
                      .then( response => {
                          console.log(response.data) ;
                          dispatch( purchaseBurgerSuccess( response.data.name , orderData ) )
@@ -79,10 +79,12 @@ export const fetchOrdersStart = () => {
     }
 }
 
-export const fetchOrders = () => {
-    return dispatch => {
+export const fetchOrders = (token) => {
+    return (dispatch , getState) => {
         dispatch( fetchOrdersStart() )
-        axiosInstance.get( '/orders.json' )
+        //We pass token stored in redux store to firebase in url 
+        //so that only authenticated users can fetch orders
+        axiosInstance.get( '/orders.json?auth=' + token )
                      .then( response => {
                         const fetchedOrders = [];
                         for (let key in response.data) {

@@ -31,7 +31,10 @@ class Orders extends Component {
         //         this.setState({loading: false});
         //     });
 
-        this.props.onFetchOrders() ;
+
+        //We pass token stored in redux store to firebase in url 
+        //so that only authenticated users can fetch orders
+        this.props.onFetchOrders(this.props.token) ;
     }
 
     render () {
@@ -61,14 +64,15 @@ const mapStateToProps = state => {
 
     return {
         orders : state.order.orders ,
-        loading : state.order.loading 
+        loading : state.order.loading ,
+        token : state.auth.token
     }
 
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchOrders : () => dispatch( orderActionCreators.fetchOrders() )
+        onFetchOrders : (token) => dispatch( orderActionCreators.fetchOrders(token) )
     }
 }
 
