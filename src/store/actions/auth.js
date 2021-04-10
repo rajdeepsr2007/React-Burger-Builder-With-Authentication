@@ -24,6 +24,20 @@ export const authFail = (error) => {
     }
 }
 
+export const logout = () => {
+    return{
+        type : actionTypes.AUTH_LOGOUT
+    }
+}
+
+export const checkAuthTimeOut = (expirationTime) => {
+    return dispatch => {
+        setTimeout( () => {
+            dispatch( logout() )
+        } , expirationTime * 1000 )
+    }
+}
+
 //Action with the async code
 //isSignup tells whether to sign up or signin
 export const auth = (email,password , isSignup) => {
@@ -45,7 +59,8 @@ export const auth = (email,password , isSignup) => {
         axios.post( url , authData )
              .then( response => {
                 console.log(response);
-                dispatch( authSuccess( response.data.idToken , response.data.localId ) )
+                dispatch( authSuccess( response.data.idToken , response.data.localId ) );
+                dispatch( checkAuthTimeOut( response.data.expiresIn ) )
              } )
              .catch( error => {
                 console.log(error);
