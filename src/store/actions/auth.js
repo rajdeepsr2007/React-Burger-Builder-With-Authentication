@@ -24,7 +24,8 @@ export const authFail = (error) => {
 }
 
 //Action with the async code
-export const auth = (email,password) => {
+//isSignup tells whether to sign up or signin
+export const auth = (email,password , isSignup) => {
     return dispatch => {
         dispatch( authStart() ) ;
         //Write authentication code here
@@ -33,7 +34,14 @@ export const auth = (email,password) => {
             password : password , 
             returnSecureToken : true
         }
-        axios.post( "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDFOPtt9NieRj2rtPDRs_5-jwWDMYRYXX8" , authData )
+
+        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDFOPtt9NieRj2rtPDRs_5-jwWDMYRYXX8" ;
+
+        if( !isSignup ){
+            url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDFOPtt9NieRj2rtPDRs_5-jwWDMYRYXX8";
+        }
+
+        axios.post( url , authData )
              .then( response => {
                 console.log(response);
                 dispatch( authSuccess( response.data ) )
