@@ -6,7 +6,11 @@ const initialState = {
     token : null ,
     userId : null ,
     error : null ,
-    loading : false
+    loading : false , 
+    //authRedirect tells where to redirect after authentication
+    //to "/checkout" if building a burger , denoted by building in burgerBuildern reducer
+    //to "/" if not building a burger
+    authRedirect : '/'
 }
 
 const authSuccess = ( state , action ) => {
@@ -29,6 +33,10 @@ const authLogout = (state , action) => {
     return updateObject( state , { token : null , userId : null } )
 }
 
+const setAuthRedirectPath = (state , action) => {
+    return updateObject( state , { authRedirect : action.path } )
+}
+
 const reducer = ( state = initialState , action ) => {
 
     switch( action.type ){
@@ -45,6 +53,9 @@ const reducer = ( state = initialState , action ) => {
         case actionTypes.AUTH_LOGOUT :
             return authLogout( state , action );
 
+        case actionTypes.SET_AUTH_REDIRECT_PATH : 
+            return setAuthRedirectPath( state , action );
+    
         default : 
             return state ;
     }
