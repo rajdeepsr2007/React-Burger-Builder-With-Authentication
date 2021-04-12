@@ -72,6 +72,8 @@ export const auth = (email,password , isSignup) => {
                 localStorage.setItem( 'userId' , response.data.localId )
 
 
+                //We also get a refresh token which never expires
+                //refresh token can be used to get a new idToken
                 dispatch( authSuccess( response.data.idToken , response.data.localId ) );
                 dispatch( checkAuthTimeOut( response.data.expiresIn ) )
              } )
