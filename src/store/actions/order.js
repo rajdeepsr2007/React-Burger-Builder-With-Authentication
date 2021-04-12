@@ -34,7 +34,8 @@ export const purchaseBurger = (orderData , token) => {
 
     return dispatch => {
         dispatch( purchaseBurgerStart() );
-        axiosInstance.post( '/orders.json?auth=' + token , orderData )
+
+        axiosInstance.post( '/orders.json?auth=' + token , orderData)
                      .then( response => {
                          console.log(response.data) ;
                          dispatch( purchaseBurgerSuccess( response.data.name , orderData ) )
@@ -79,12 +80,21 @@ export const fetchOrdersStart = () => {
     }
 }
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token , userId) => {
     return (dispatch , getState) => {
         dispatch( fetchOrdersStart() )
         //We pass token stored in redux store to firebase in url 
         //so that only authenticated users can fetch orders
-        axiosInstance.get( '/orders.json?auth=' + token )
+
+        //send firebase token to authenticate user
+        //orderBy="userId" tells firebase to order data by userId property
+        //equalTo="userId" tells firebase to return only those orders whose userId property is equal to the sent one
+
+        //both should be sent in quotation marks
+
+        const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"'
+
+        axiosInstance.get( '/orders.json' + queryParams )
                      .then( response => {
                         const fetchedOrders = [];
                         for (let key in response.data) {
