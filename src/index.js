@@ -24,6 +24,8 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer , composeEnhancers( applyMiddleware( thunk ) ) );
 
+//Set <BrowserRouter basename="/my-app/" > If we are seving our app from example.com
+
 const app = (
     <Provider store={store}>
         <BrowserRouter>

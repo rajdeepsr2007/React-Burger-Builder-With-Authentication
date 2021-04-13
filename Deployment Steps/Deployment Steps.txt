@@ -1,0 +1,4 @@
+1.Set <BrowserRouter basename="/my-app/"> , if serving from example.com/my-app
+2.Use npm run build to get optimized code with small size
+3.Our server (nodejs , PHP or any other) should always serve index.html even in 404 cases as Routes are defined in our React App
+4.Upload the build artefacts found in /build  to a static server like Firebase, Github , etc
