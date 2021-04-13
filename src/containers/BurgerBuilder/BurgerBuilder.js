@@ -15,7 +15,10 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../axios-orders';
 
-class BurgerBuilder extends Component {
+//We can use export before class to export it as named export
+//We still keep the default export
+
+export class BurgerBuilder extends Component {
     // constructor(props) {
     //     super(props);
     //     this.state = {...}
