@@ -1,3 +1,14 @@
+## Try Out The Project At [Burger Builder](https://the-burger-builder-30e55.firebaseapp.com/)
+
+## About The Project
+Build And Order Your Customized Burger<br>
+Features:<br>
+1.Authentication
+2.Add and remove ingredients and visualize them on the screen
+3.View order summary
+4.Checkout with order details
+5.View previous orders
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
