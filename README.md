@@ -3,11 +3,11 @@
 ## About The Project
 Build And Order Your Customized Burger<br>
 Features:<br>
-1.Authentication
-2.Add and remove ingredients and visualize them on the screen
-3.View order summary
-4.Checkout with order details
-5.View previous orders
+1.Authentication<br>
+2.Add and remove ingredients and visualize them on the screen<br>
+3.View order summary<br>
+4.Checkout with order details<br>
+5.View previous orders<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
