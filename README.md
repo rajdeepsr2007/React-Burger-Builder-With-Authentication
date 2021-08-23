@@ -9,6 +9,16 @@ Features:<br>
 4.Checkout with order details<br>
 5.View previous orders<br>
 
+![Screenshot (884)](https://user-images.githubusercontent.com/74171334/130420941-c3596423-c242-452b-9d0d-fb15ab685156.png)
+![Screenshot (885)](https://user-images.githubusercontent.com/74171334/130420970-b043e784-da35-445b-ba25-7ab2e911c9d9.png)
+![Screenshot (886)](https://user-images.githubusercontent.com/74171334/130420983-a3af01bd-9538-4481-91a7-88abdb4fe096.png)
+![Screenshot (887)](https://user-images.githubusercontent.com/74171334/130420987-f5f32b20-0c92-4eb6-805b-c9f564dc5a4f.png)
+![Screenshot (888)](https://user-images.githubusercontent.com/74171334/130421005-9f5e0deb-2d34-46e5-99a3-2269efcbf5c5.png)
+![Screenshot (889)](https://user-images.githubusercontent.com/74171334/130421019-6b9fedd8-ad30-42b7-abe7-1000d905ff77.png)
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
